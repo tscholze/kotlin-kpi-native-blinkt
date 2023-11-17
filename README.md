@@ -1,6 +1,6 @@
 # Kpi.KBlinkt
 
-> A demo how to work with Kotlin Native to access GPIO pins on a Raspberry Pi-
+> A demo how to work with Kotlin Native to access GPIO pins on a Raspberry Pi.
 
 ## tl;dr
 
@@ -25,7 +25,7 @@ Windows 10 IoT C# app I wrote times ago.
 
 ## How to run
 
-Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file
+Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
 ## Contributing
 
@@ -38,8 +38,8 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-- BitSpittle and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
-  like me
+BitSpittle and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+like me.
 
 ## License
 
