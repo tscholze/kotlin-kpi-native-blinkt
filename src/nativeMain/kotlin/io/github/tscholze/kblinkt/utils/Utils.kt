@@ -1,9 +1,10 @@
-package io.github.tscholze.kblinkt
-
+package io.github.tscholze.kblinkt.utils
 
 /**
  * Validates if [this] represents a valid percentage value.
  * Rule: 0 >= x <= 1
+ *
+ * @return True if value is valid.
  */
 fun Double.isPercentValue(): Boolean {
     return !(this < 0 || this > 1)
@@ -12,6 +13,8 @@ fun Double.isPercentValue(): Boolean {
 /**
  * Validates if [this] represents a valid hex value.
  * Rule: 0 >= x <= 255
+ *
+ * @return True if value is valid.
  */
 fun Int.isHexValue(): Boolean {
     return !(this < 0 || this > 255)

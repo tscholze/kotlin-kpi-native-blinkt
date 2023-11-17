@@ -1,4 +1,4 @@
-import io.github.tscholze.kblinkt.APA102
+import io.github.tscholze.kblinkt.apa102.APA102
 import io.github.tscholze.kblinkt.lightmodes.cycle
 import io.ktgp.Gpio
 import io.ktgp.use

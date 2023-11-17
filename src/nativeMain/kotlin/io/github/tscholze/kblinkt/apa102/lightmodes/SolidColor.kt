@@ -1,6 +1,6 @@
-package io.github.tscholze.kblinkt.lightmodes
+package io.github.tscholze.kblinkt.apa102.lightmodes
 
-import io.github.tscholze.kblinkt.APA102
+import io.github.tscholze.kblinkt.apa102.APA102
 
 
 /**

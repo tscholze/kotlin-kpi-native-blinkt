@@ -1,4 +1,4 @@
-package io.github.tscholze.kblinkt
+package io.github.tscholze.kblinkt.apa102
 
 import io.ktgp.gpio.Gpio
 import io.ktgp.gpio.Output
@@ -17,7 +17,7 @@ class APA102(gpio: Gpio) {
     // MARK: - Private properties -
 
     /** List of attached LEDs **/
-    internal var leds = mutableListOf<APA102Led>()
+    internal var leds = mutableListOf<Led>()
 
     /** GPIO pin for data connections */
     private val dataPin: Output
@@ -30,7 +30,7 @@ class APA102(gpio: Gpio) {
     init {
         // Create list of LEDs
         repeat(NUMBER_OF_LEDS) {
-            leds.add(APA102Led())
+            leds.add(Led())
         }
 
         // Setup GPIO pins
@@ -55,7 +55,7 @@ class APA102(gpio: Gpio) {
             return
         }
 
-        leds[index].setRgb(255, 0, 0)
+        leds[index].setRgb(red, green, blue)
     }
 
     // MARK: - Private helper -
@@ -112,7 +112,7 @@ class APA102(gpio: Gpio) {
      *
      * @param led which shall be updated.
      */
-    private fun writeLED(led: APA102Led) {
+    private fun writeLED(led: Led) {
         val sendBright = (31.0 * led.brightness).toInt() and 31
         writeByte((224 or sendBright).toByte())
         writeByte(led.blue.toByte())

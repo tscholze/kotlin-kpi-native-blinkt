@@ -1,6 +1,9 @@
 package io.github.tscholze.kblinkt.lightmodes
 
-import io.github.tscholze.kblinkt.APA102
+import io.github.tscholze.kblinkt.apa102.APA102
+import io.github.tscholze.kblinkt.apa102.lightmodes.solidBlue
+import io.github.tscholze.kblinkt.apa102.lightmodes.solidGreen
+import io.github.tscholze.kblinkt.apa102.lightmodes.solidRed
 import io.ktgp.util.sleep
 
 /**

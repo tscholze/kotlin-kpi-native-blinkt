@@ -1,4 +1,8 @@
-package io.github.tscholze.kblinkt
+package io.github.tscholze.kblinkt.apa102
+
+import io.github.tscholze.kblinkt.utils.isHexValue
+import io.github.tscholze.kblinkt.utils.isPercentValue
+
 
 /**
  * Represents a LED that's controlled
@@ -9,7 +13,7 @@ package io.github.tscholze.kblinkt
  * @param blue: Initial blue part value. Default value: 0
  * @param brightness: Initial brightness part value. Default value: 0.0
  */
-class APA102Led(
+class Led(
     var red: Int = 0,
     var green: Int = 0,
     var blue: Int = 0,
