@@ -45,7 +45,7 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-BitSpittle and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+BitSpittle, CharLEE and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
 like me.
 
 ## License
