@@ -8,6 +8,9 @@ import io.ktgp.gpio.PinState
  * Represents an APA102 chip manager.
  * It allows the user to controll the embedded LEDs
  *
+ * This controller is a port if my HomeBear.Blinkt Windows 10 IoT Core app.
+ * > https://github.com/tscholze/dotnet-iot-homebear-blinkt/tree/master/HomeBear.Blinkt/Controller
+ *
  * @param gpio GPIO Controller to access pins.
  */
 class APA102(gpio: Gpio) {
