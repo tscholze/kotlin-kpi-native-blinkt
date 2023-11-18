@@ -27,6 +27,13 @@ Windows 10 IoT C# app I wrote times ago.
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
+## Features
+- [x] Project setup
+- [x] Deployment to a Pi using a convinient shell script
+- [x] Controll LEDs
+- [x] Add "plugin"-system for light modes
+- [ ] Add possibility to control LED from other computers via `curl`
+
 ## Contributing
 
 Feel free to improve the quality of the code. It would be great to learn more from experienced Kotlin and IoT
@@ -38,7 +45,7 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-BitSpittle and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+BitSpittle, CharLEE and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
 like me.
 
 ## License
