@@ -1,5 +1,7 @@
 package io.github.tscholze.kblinkt.utils
 
+import io.github.tscholze.kblinkt.apa102.APA102
+
 /**
  * Validates if [this] represents a valid percentage value.
  * Rule: 0 >= x <= 1

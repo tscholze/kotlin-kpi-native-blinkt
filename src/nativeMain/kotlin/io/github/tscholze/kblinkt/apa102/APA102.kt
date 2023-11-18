@@ -11,13 +11,15 @@ import io.ktgp.gpio.PinState
  * This controller is a port if my HomeBear.Blinkt Windows 10 IoT Core app.
  * > https://github.com/tscholze/dotnet-iot-homebear-blinkt/tree/master/HomeBear.Blinkt/Controller
  *
+ * After usage the method [close] shall be called to clean up GPIO usage.
+ *
  * @param gpio GPIO Controller to access pins.
  */
 class APA102(gpio: Gpio) {
     // MARK: - Private properties -
 
     /** List of attached LEDs **/
-    internal var leds = mutableListOf<Led>()
+    private var leds = mutableListOf<Led>()
 
     /** GPIO pin for data connections */
     private val dataPin: Output
@@ -27,10 +29,15 @@ class APA102(gpio: Gpio) {
 
     // MARK: - Init -
 
+    /**
+     * Initializer which sets up pins and
+     * LED objcets that shall be controlled
+     * using the controller.
+     */
     init {
         // Create list of LEDs
         repeat(NUMBER_OF_LEDS) {
-            leds.add(Led())
+            leds.add(Led(Color.Black))
         }
 
         // Setup GPIO pins
@@ -38,24 +45,40 @@ class APA102(gpio: Gpio) {
         clockPin = gpio.output(GPIO_PIN_CLOCK)
     }
 
+    // MARK: - Internal helper -
+
+    /**
+     * Sets color to LEDs in given range.
+     *
+     * @param color New color to set
+     * @param range Range of LEDs that shall be updated. Default value: all
+     */
+    fun setColor(color: Color, range: IntRange = 0..<NUMBER_OF_LEDS) {
+        // Validate range.
+        if (range.first < 0 || range.last > NUMBER_OF_LEDS) {
+            print("Given LED range is out of bounds.")
+            return
+        }
+
+        // Update LEDs in range.
+        for (i in range) {
+            leds[i].setColor(color)
+        }
+
+        // Write updated LED values.
+        writeLedsValues()
+    }
+
     /**
      * Closes and cleans the connections and pins
      * Must be called if program has been finished.
      */
     fun close() {
-        println("Close")
         turnAllOff()
         writeLedsValues()
         dataPin.close()
         clockPin.close()
-    }
-
-    fun setRgbForLed(index: Int, red: Int, green: Int, blue: Int) {
-        if (index < 0 || index > NUMBER_OF_LEDS - 1) {
-            return
-        }
-
-        leds[index].setRgb(red, green, blue)
+        println("APA102 has been closed.")
     }
 
     // MARK: - Private helper -
@@ -64,7 +87,6 @@ class APA102(gpio: Gpio) {
      * Turn all LEDs on.
      */
     private fun turnAllOn() {
-        println("turnAllOn")
         leds.forEach { it.turnOn() }
         writeLedsValues()
     }
@@ -82,6 +104,7 @@ class APA102(gpio: Gpio) {
      * @param locked State that shall be applied.
      */
     private fun setClockState(locked: Boolean) {
+        // Determine which numer of pulses are required
         val numberOfPulses =
             if (locked) NUMBER_OF_CLOCK_LOCK_PULSES else NUMBER_OF_CLOCK_UNLOCK_PULSES
 
@@ -99,25 +122,20 @@ class APA102(gpio: Gpio) {
      * Writes stored LED values to the HAT.
      * Required for applying stored LED values.
      */
-    internal fun writeLedsValues() {
+    private fun writeLedsValues() {
         setClockState(true)
-        for (led in leds) {
-            writeLED(led)
-        }
-        setClockState(false)
-    }
 
-    /**
-     * Writes LED values to the HAT
-     *
-     * @param led which shall be updated.
-     */
-    private fun writeLED(led: Led) {
-        val sendBright = (31.0 * led.brightness).toInt() and 31
-        writeByte((224 or sendBright).toByte())
-        writeByte(led.blue.toByte())
-        writeByte(led.green.toByte())
-        writeByte(led.red.toByte())
+        // Write LEDs down to hardware
+        leds.forEach {
+            val color = it.color
+            val brightness = (31.0 * color.brightness).toInt() and 31
+            writeByte((224 or brightness).toByte())
+            writeByte(color.blue.toByte())
+            writeByte(color.green.toByte())
+            writeByte(color.red.toByte())
+        }
+
+        setClockState(false)
     }
 
     /**

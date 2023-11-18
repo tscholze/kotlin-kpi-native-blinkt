@@ -1,22 +1,32 @@
 package io.github.tscholze.kblinkt.lightmodes
 
 import io.github.tscholze.kblinkt.apa102.APA102
+import io.github.tscholze.kblinkt.apa102.Color
 
 /**
  * Sets colors to kinda rainbow gradient.
+ *
+ * Colors:
+ * LED 0 = white
+ * LED 1-2 = red
+ * LED 3-4 = green
+ * LED 5-6 = blue
+ * LED 7 = white
  */
 fun APA102.rainbow() {
-    setRgbForLed(0, 255, 255, 255)
+    // First 0. LED = white
+    setColor(Color.White, 0..0)
 
-    setRgbForLed(1, 255, 0, 0)
-    setRgbForLed(2, 255, 0, 0)
+    // 1. & 2. LED = red
+    setColor(Color.Red, 1..2)
 
-    setRgbForLed(3, 0, 255, 0)
-    setRgbForLed(4, 0, 255, 0)
+    // 3. & 4. LED = green
+    setColor(Color.Green, 3..4)
 
-    setRgbForLed(5, 0, 0, 255)
-    setRgbForLed(7, 0, 0, 255)
+    // 5. & 6. LED = blue
+    setColor(Color.Blue, 5..6)
 
-    setRgbForLed(7, 255, 255, 255)
+    // Last 7. LED = white
+    setColor(Color.White, 7..7)
 
 }

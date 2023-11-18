@@ -1,9 +1,7 @@
 package io.github.tscholze.kblinkt.lightmodes
 
 import io.github.tscholze.kblinkt.apa102.APA102
-import io.github.tscholze.kblinkt.apa102.lightmodes.solidBlue
-import io.github.tscholze.kblinkt.apa102.lightmodes.solidGreen
-import io.github.tscholze.kblinkt.apa102.lightmodes.solidRed
+import io.github.tscholze.kblinkt.apa102.Color
 import io.ktgp.util.sleep
 
 /**
@@ -14,11 +12,11 @@ import io.ktgp.util.sleep
  */
 fun APA102.cycle(times: Int = 10) {
     repeat(times) {
-        solidRed()
+        setColor(Color.Red)
         sleep(1_000)
-        solidGreen()
+        setColor(Color.Green)
         sleep(1_000)
-        solidBlue()
+        setColor(Color.Blue)
         sleep(1_000)
     }
 }
