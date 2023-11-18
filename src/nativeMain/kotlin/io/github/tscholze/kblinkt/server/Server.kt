@@ -16,14 +16,17 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 fun runServer(actions: MutableSharedFlow<Action>): ApplicationEngine {
     return embeddedServer(CIO, port = 8080) {
         routing {
+            // Listen to GET requests on root
             get("/") {
                 call.respondText("Hi from KBlinkt")
             }
 
+            // Listen to POST requests on /on
             post("on") {
                 actions.emit(Action.TurnOn)
             }
 
+            // Listen to POST requests on /off
             post("off") {
                 actions.emit(Action.TurnOff)
             }

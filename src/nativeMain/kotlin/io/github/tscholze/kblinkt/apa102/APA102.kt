@@ -3,7 +3,9 @@ package io.github.tscholze.kblinkt.apa102
 import io.ktgp.gpio.Gpio
 import io.ktgp.gpio.Output
 import io.ktgp.gpio.PinState
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -20,7 +22,7 @@ import kotlinx.coroutines.runBlocking
  */
 class APA102(
     gpio: Gpio,
-    actions: MutableSharedFlow<Action>
+    private var actions: MutableSharedFlow<Action>,
 ) {
     // MARK: - Private properties -
 
@@ -32,6 +34,8 @@ class APA102(
 
     /** GPIO pin to access the clock */
     private val clockPin: Output
+
+    private var eventListenerJob: Job? = null
 
     // MARK: - Init -
 
@@ -49,17 +53,6 @@ class APA102(
         // Setup GPIO pins
         dataPin = gpio.output(GPIO_PIN_DATA)
         clockPin = gpio.output(GPIO_PIN_CLOCK)
-
-        /*
-        runBlocking {
-            actions.collect { action ->
-                when (action) {
-                    Action.TurnOff -> turnAllOn()
-                    Action.TurnOn -> turnAllOff()
-                }
-            }
-        }
-        */
     }
 
     // MARK: - Internal helper -
@@ -99,6 +92,17 @@ class APA102(
     }
 
     // MARK: - Private helper -
+
+    suspend fun startListing() = runBlocking {
+        launch {
+            actions.collect { action ->
+                when (action) {
+                    Action.TurnOff -> turnAllOn()
+                    Action.TurnOn -> turnAllOff()
+                }
+            }
+        }
+    }
 
     /**
      * Turn all LEDs on.
@@ -192,4 +196,3 @@ class APA102(
         private const val NUMBER_OF_CLOCK_UNLOCK_PULSES = 32
     }
 }
-

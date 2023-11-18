@@ -1,5 +1,6 @@
 import io.github.tscholze.kblinkt.apa102.APA102
 import io.github.tscholze.kblinkt.apa102.Action
+import io.github.tscholze.kblinkt.apa102.Color
 import io.github.tscholze.kblinkt.lightmodes.cycle
 import io.github.tscholze.kblinkt.server.runServer
 import io.ktgp.Gpio
@@ -21,13 +22,13 @@ fun main() {
 
         // Run it until user presses a key to exit.
         apa102.run {
-            apa102.cycle()
+            // 2. Start server
+            runServer(actions)
+
+            
             println("Press any key to exit")
             readln()
             apa102.close()
         }
     }
-
-    // 2. Start server
-    runServer()
 }
