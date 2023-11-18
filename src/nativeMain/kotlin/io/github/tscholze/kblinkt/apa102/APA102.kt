@@ -3,6 +3,7 @@ package io.github.tscholze.kblinkt.apa102
 import io.ktgp.gpio.Gpio
 import io.ktgp.gpio.Output
 import io.ktgp.gpio.PinState
+import kotlinx.coroutines.flow.MutableSharedFlow
 
 /**
  * Represents an APA102 chip manager.
@@ -14,8 +15,12 @@ import io.ktgp.gpio.PinState
  * After usage the method [close] shall be called to clean up GPIO usage.
  *
  * @param gpio GPIO Controller to access pins.
+ * @param actions Flow that shall be listend to for requested actions
  */
-class APA102(gpio: Gpio) {
+class APA102(
+    private var gpio: Gpio,
+    private var actions: MutableSharedFlow<Command>,
+) {
     // MARK: - Private properties -
 
     /** List of attached LEDs **/
@@ -31,7 +36,7 @@ class APA102(gpio: Gpio) {
 
     /**
      * Initializer which sets up pins and
-     * LED objcets that shall be controlled
+     * LED objects that shall be controlled
      * using the controller.
      */
     init {
@@ -43,6 +48,8 @@ class APA102(gpio: Gpio) {
         // Setup GPIO pins
         dataPin = gpio.output(GPIO_PIN_DATA)
         clockPin = gpio.output(GPIO_PIN_CLOCK)
+
+        println("Init finished")
     }
 
     // MARK: - Internal helper -
@@ -66,7 +73,7 @@ class APA102(gpio: Gpio) {
         }
 
         // Write updated LED values.
-        writeLedsValues()
+        writeLedValues()
     }
 
     /**
@@ -75,7 +82,7 @@ class APA102(gpio: Gpio) {
      */
     fun close() {
         turnAllOff()
-        writeLedsValues()
+        writeLedValues()
         dataPin.close()
         clockPin.close()
         println("APA102 has been closed.")
@@ -83,19 +90,29 @@ class APA102(gpio: Gpio) {
 
     // MARK: - Private helper -
 
+    suspend fun startListing() {
+        actions.collect { action ->
+            println("Collect")
+            println(action.toString())
+            when (action) {
+                Command.TurnOff -> turnAllOff()
+                Command.TurnOn -> turnAllOn()
+            }
+        }
+    }
+
     /**
      * Turn all LEDs on.
      */
     private fun turnAllOn() {
-        leds.forEach { it.turnOn() }
-        writeLedsValues()
+        setColor(Color.White)
     }
 
     /**
      * Turn all LEDs off.
      */
     private fun turnAllOff() {
-        leds.forEach { it.turnOff() }
+        setColor(Color.Black)
     }
 
     /**
@@ -122,7 +139,7 @@ class APA102(gpio: Gpio) {
      * Writes stored LED values to the HAT.
      * Required for applying stored LED values.
      */
-    private fun writeLedsValues() {
+    private fun writeLedValues() {
         setClockState(true)
 
         // Write LEDs down to hardware
@@ -175,4 +192,3 @@ class APA102(gpio: Gpio) {
         private const val NUMBER_OF_CLOCK_UNLOCK_PULSES = 32
     }
 }
-

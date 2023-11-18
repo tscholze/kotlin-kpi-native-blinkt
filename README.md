@@ -27,12 +27,20 @@ Windows 10 IoT C# app I wrote times ago.
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
+## Available `curl` commands
+After the server has been started, the following commands are available:
+- `http://pi:8080/on` - Turns all LEDs on (sets white color)
+- `http://pi:8080/off` - Turns all LEDs off (sets black color)
+
+All curl commands can be found in `curl_requests_run.sh` file.
+
 ## Features
 - [x] Project setup
-- [x] Deployment to a Pi using a convinient shell script
-- [x] Controll LEDs
+- [x] Deployment to a Pi using a convenient shell script
+- [x] Control LEDs using Kotlin functions
 - [x] Add "plugin"-system for light modes
-- [ ] Add possibility to control LED from other computers via `curl`
+- [x] Control LED using remote computer's `curl` commands
+- [ ] Make it fancy
 
 ## Contributing
 
@@ -45,7 +53,7 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-BitSpittle, CharLEE and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
 like me.
 
 ## License

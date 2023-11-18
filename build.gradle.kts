@@ -28,6 +28,9 @@ kotlin {
                 implementation("io.ktor:ktor-server-core:$ktorVersion")
                 implementation("io.ktor:ktor-server-cio:$ktorVersion")
 
+                // Kotlinx
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxarm64:1.7.3")
+
                 // Default C
                 implementation(kotlin("stdlib"))
             }
