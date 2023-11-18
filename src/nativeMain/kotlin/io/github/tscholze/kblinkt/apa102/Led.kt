@@ -12,7 +12,7 @@ class Led(var color: Color) {
 
     /**
      * Sets color to LED which can be applied
-     * by [APA102.writeLedsValues]
+     * by [APA102.writeLedValues]
      *
      * @param color Color that shall be applied.
      */
@@ -22,11 +22,11 @@ class Led(var color: Color) {
 
     /** Turns LED off */
     fun turnOn() {
-        setColor(Color.White)
+        setColor(Color.Blue)
     }
 
     /** Turns LED off aka sets black color. */
     fun turnOff() {
-        setColor(Color.Black)
+        setColor(Color.Green)
     }
 }

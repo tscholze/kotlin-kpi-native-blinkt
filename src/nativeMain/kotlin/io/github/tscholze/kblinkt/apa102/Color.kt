@@ -45,7 +45,7 @@ sealed class Color(
     // MARK: - Init -
 
     /**
-     * Initializer which valides the given rgb and brightness values.
+     * Initializer which validates the given rgb and brightness values.
      * If validation fails, an [Exception] will be thrown.
      *
      * @throws [Exception] if given values are not valid.
