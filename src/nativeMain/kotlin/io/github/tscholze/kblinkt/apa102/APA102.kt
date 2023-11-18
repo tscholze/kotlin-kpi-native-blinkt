@@ -50,6 +50,7 @@ class APA102(
         dataPin = gpio.output(GPIO_PIN_DATA)
         clockPin = gpio.output(GPIO_PIN_CLOCK)
 
+        /*
         runBlocking {
             actions.collect { action ->
                 when (action) {
@@ -58,6 +59,7 @@ class APA102(
                 }
             }
         }
+        */
     }
 
     // MARK: - Internal helper -
