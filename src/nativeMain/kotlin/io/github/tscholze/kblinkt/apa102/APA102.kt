@@ -3,6 +3,8 @@ package io.github.tscholze.kblinkt.apa102
 import io.ktgp.gpio.Gpio
 import io.ktgp.gpio.Output
 import io.ktgp.gpio.PinState
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.runBlocking
 
 /**
  * Represents an APA102 chip manager.
@@ -14,8 +16,12 @@ import io.ktgp.gpio.PinState
  * After usage the method [close] shall be called to clean up GPIO usage.
  *
  * @param gpio GPIO Controller to access pins.
+ * @param actions Flow that shall be listend to for requested actions
  */
-class APA102(gpio: Gpio) {
+class APA102(
+    gpio: Gpio,
+    actions: MutableSharedFlow<Action>
+) {
     // MARK: - Private properties -
 
     /** List of attached LEDs **/
@@ -43,6 +49,15 @@ class APA102(gpio: Gpio) {
         // Setup GPIO pins
         dataPin = gpio.output(GPIO_PIN_DATA)
         clockPin = gpio.output(GPIO_PIN_CLOCK)
+
+        runBlocking {
+            actions.collect { action ->
+                when (action) {
+                    Action.TurnOff -> turnAllOn()
+                    Action.TurnOn -> turnAllOff()
+                }
+            }
+        }
     }
 
     // MARK: - Internal helper -
