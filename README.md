@@ -23,18 +23,29 @@ Windows 10 IoT C# app I wrote times ago.
 - Raspbian 64bit or other Raspberry Pi OS with GPIO libaries
 - JetBrains Fleet, IntelliJ (Community) or similar to edit Kotlin code
 
+## How it looks
+
+<table>
+    <tr>
+        <td>![docs/web.png]()</td>
+        <td>![docs/curl.png]()</td>
+    </tr>
+</table>
 ## How to run
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
 ## Available `curl` commands
+
 After the server has been started, the following commands are available:
+
 - `http://pi:8080/on` - Turns all LEDs on (sets white color)
 - `http://pi:8080/off` - Turns all LEDs off (sets black color)
 
 All curl commands can be found in `curl_requests_run.sh` file.
 
 ## Features
+
 - [x] Project setup
 - [x] Deployment to a Pi using a convenient shell script
 - [x] Control LEDs using Kotlin functions
@@ -53,7 +64,8 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support
+Kotlin beginners
 like me.
 
 ## License
