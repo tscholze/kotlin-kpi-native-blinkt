@@ -8,19 +8,19 @@ fun APA102.morseCode(text: String) {
     val code = text.uppercase().toMorseCode()
 
     code.forEach {
-        println(it)
-
         when (it) {
             MorseCodeFragment.LONG -> {
                 setColor(Color.White)
                 sleep(500)
                 setColor(Color.Black)
             }
+
             MorseCodeFragment.SHORT -> {
                 setColor(Color.White)
                 sleep(200)
                 setColor(Color.Black)
             }
+
             MorseCodeFragment.PAUSE -> sleep(500)
         }
     }

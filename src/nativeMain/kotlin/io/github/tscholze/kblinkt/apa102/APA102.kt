@@ -86,8 +86,6 @@ class APA102(
      */
     suspend fun startListing() {
         actions.collect { action ->
-            println("Collect")
-            println(action.toString())
             when (action) {
                 Command.TurnOff -> turnAllOff()
                 Command.TurnOn -> turnAllOn()
