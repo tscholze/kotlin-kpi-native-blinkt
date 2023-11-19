@@ -27,10 +27,11 @@ Windows 10 IoT C# app I wrote times ago.
 
 <table>
     <tr>
-        <td>![docs/web.png]()</td>
-        <td>![docs/curl.png]()</td>
+        <td>![](docs/web.png)</td>
+        <td>![](docs/curl.png)</td>
     </tr>
 </table>
+
 ## How to run
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
