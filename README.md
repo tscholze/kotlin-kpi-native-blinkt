@@ -27,8 +27,8 @@ Windows 10 IoT C# app I wrote times ago.
 
 <table>
     <tr>
-        <td>![](_docs/web.png)</td>
-        <td>![](_docs/curl.png)</td>
+        <td><img src="_docs/web.png" height="200" /></td>
+        <td><img src="_docs/curl.png" height="200" /></td>
     </tr>
 </table>
 
