@@ -39,10 +39,23 @@ Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the pla
 
 After the server has been started, the following commands are available:
 
-- `http://pi:8080/on` - Turns all LEDs on (sets white color)
-- `http://pi:8080/off` - Turns all LEDs off (sets black color)
+```shell
+# Turn off all the things
+curl -X POST http://pi:8080/on
+curl -X POST http://pi:8080/off
 
-All curl commands can be found in `curl_requests_run.sh` file.
+# Light mode sample
+# See `turnLightMode` for more supported ids
+curl -X POST http://pi:8080/lightmode -d "red"
+curl -X POST http://pi:8080/lightmode -d "rainbow"
+curl -X POST http://pi:8080/lightmode -d "cycle"
+
+# Morse word
+curl -X POST http://pi:8080/morse -d "hello"
+
+# System shutdown
+curl -X POST http://pi:8080/shutdown
+```
 
 ## Features
 
@@ -50,8 +63,8 @@ All curl commands can be found in `curl_requests_run.sh` file.
 - [x] Deployment to a Pi using a convenient shell script
 - [x] Control LEDs using Kotlin functions
 - [x] Add "plugin"-system for light modes
-- [x] Control LED using remote computer's `curl` commands
-- [ ] Make it fancy
+- [x] Control LEDs using remote computer's `curl` commands
+- [x] Control LEDs using a simple web interface
 
 ## Contributing
 
