@@ -1,6 +1,6 @@
 # Kpi.KBlinkt
 
-> A demo how to work with Kotlin Native to access GPIO pins on a Raspberry Pi.
+> A simple program to understand how to work with Kotlin Native to access GPIO pins on a Raspberry Pi. It also features a Ktor-based web interface in addition to just using `curl`.
 
 ## tl;dr
 
