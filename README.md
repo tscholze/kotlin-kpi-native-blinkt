@@ -23,18 +23,15 @@ Windows 10 IoT C# app I wrote times ago.
 - Raspbian 64bit or other Raspberry Pi OS with GPIO libaries
 - JetBrains Fleet, IntelliJ (Community) or similar to edit Kotlin code
 
-## How it looks
-
-<table>
-    <tr>
-        <td><img src="_docs/web.png" height="200" /></td>
-        <td><img src="_docs/curl.png" height="200" /></td>
-    </tr>
-</table>
-
 ## How to run
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
+
+## Available web interface
+
+After booting up the app, you can connect to `http://pi:8080/` and control the Blinkt! HAT using your browser.
+
+<img src="_docs/web.png" height="250" />
 
 ## Available `curl` commands
 
