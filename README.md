@@ -76,7 +76,7 @@ Just me, [Tobi]([https://tscholze.github.io).
 ## Special thanks to
 
 BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support
-Kotlin beginners like me. As well as Sebastian Aginer from JetBrains to get me back into Kotlin with his Twitch Streams.
+Kotlin beginners like me. As well as Sebastian Aigner from JetBrains to get me back into Kotlin with his Twitch Streams.
 
 ## License
 
