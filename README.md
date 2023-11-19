@@ -28,19 +28,35 @@ Windows 10 IoT C# app I wrote times ago.
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
 ## Available `curl` commands
-After the server has been started, the following commands are available:
-- `http://pi:8080/on` - Turns all LEDs on (sets white color)
-- `http://pi:8080/off` - Turns all LEDs off (sets black color)
 
-All curl commands can be found in `curl_requests_run.sh` file.
+After the server has been started, the following commands are available:
+
+```shell
+# Turn off all the things
+curl -X POST http://pi:8080/on
+curl -X POST http://pi:8080/off
+
+# Light mode sample
+# See `turnLightMode` for more supported ids
+curl -X POST http://pi:8080/lightmode -d "red"
+curl -X POST http://pi:8080/lightmode -d "rainbow"
+curl -X POST http://pi:8080/lightmode -d "cycle"
+
+# Morse word
+curl -X POST http://pi:8080/morse -d "hello"
+
+# System shutdown
+curl -X POST http://pi:8080/shutdown
+```
 
 ## Features
+
 - [x] Project setup
 - [x] Deployment to a Pi using a convenient shell script
 - [x] Control LEDs using Kotlin functions
 - [x] Add "plugin"-system for light modes
-- [x] Control LED using remote computer's `curl` commands
-- [ ] Make it fancy
+- [x] Control LEDs using remote computer's `curl` commands
+- [x] Control LEDs using a simple web interface
 
 ## Contributing
 
@@ -53,7 +69,8 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Special thanks to
 
-BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support Kotlin beginners
+BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support
+Kotlin beginners
 like me.
 
 ## License

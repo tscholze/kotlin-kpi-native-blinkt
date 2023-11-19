@@ -1,5 +1,9 @@
 package io.github.tscholze.kblinkt.apa102
 
+import io.github.tscholze.kblinkt.apa102.Command.LightMode
+import io.github.tscholze.kblinkt.apa102.lightmodes.morseCode
+import io.github.tscholze.kblinkt.lightmodes.cycle
+import io.github.tscholze.kblinkt.lightmodes.rainbow
 import io.ktgp.gpio.Gpio
 import io.ktgp.gpio.Output
 import io.ktgp.gpio.PinState
@@ -48,8 +52,6 @@ class APA102(
         // Setup GPIO pins
         dataPin = gpio.output(GPIO_PIN_DATA)
         clockPin = gpio.output(GPIO_PIN_CLOCK)
-
-        println("Init finished")
     }
 
     // MARK: - Internal helper -
@@ -76,20 +78,12 @@ class APA102(
         writeLedValues()
     }
 
-    /**
-     * Closes and cleans the connections and pins
-     * Must be called if program has been finished.
-     */
-    fun close() {
-        turnAllOff()
-        writeLedValues()
-        dataPin.close()
-        clockPin.close()
-        println("APA102 has been closed.")
-    }
-
     // MARK: - Private helper -
 
+    /**
+     * Starts listing to new command requests o
+     * on the [actions] property.
+     */
     suspend fun startListing() {
         actions.collect { action ->
             println("Collect")
@@ -97,6 +91,9 @@ class APA102(
             when (action) {
                 Command.TurnOff -> turnAllOff()
                 Command.TurnOn -> turnAllOn()
+                Command.Shutdown -> close()
+                is LightMode -> turnLightMode(action.id)
+                is Command.Morse -> morseCode(action.text)
             }
         }
     }
@@ -113,6 +110,21 @@ class APA102(
      */
     private fun turnAllOff() {
         setColor(Color.Black)
+    }
+
+    /**
+     *  Performs requested light mode request.
+     *
+     * @param id Identifier of the light mode
+     */
+    private fun turnLightMode(id: String) {
+        when (id) {
+            "red" -> setColor(Color.Red)
+            "green" -> setColor(Color.Green)
+            "blue" -> setColor(Color.Blue)
+            "rainbow" -> rainbow()
+            "cycle" -> cycle()
+        }
     }
 
     /**
@@ -171,6 +183,18 @@ class APA102(
             modded = (modded shl 1) % 256
             clockPin.setState(PinState.LOW)
         }
+    }
+
+    /**
+     * Closes and cleans the connections and pins
+     * Must be called if program has been finished.
+     */
+    private fun close() {
+        turnAllOff()
+        writeLedValues()
+        dataPin.close()
+        clockPin.close()
+        println("APA102 has been closed.")
     }
 
     // MARK: - Companion object -
