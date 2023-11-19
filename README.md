@@ -64,6 +64,12 @@ curl -X POST http://pi:8080/shutdown
 - [x] Control LEDs using remote computer's `curl` commands
 - [x] Control LEDs using a simple web interface
 
+## How it looks
+
+Please click to watch.
+[![Watch the video](https://img.youtube.com/vi/TJObdr6nuBI/maxresdefault.jpg)](https://youtu.be/TJObdr6nuBI)
+
+
 ## Contributing
 
 Feel free to improve the quality of the code. It would be great to learn more from experienced Kotlin and IoT
