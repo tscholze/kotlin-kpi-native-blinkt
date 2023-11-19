@@ -1,15 +1,15 @@
 # Kpi.KBlinkt
 
-> A simple program to understand how to work with Kotlin Native to access GPIO pins on a Raspberry Pi. It also features a Ktor-based web interface in addition to just using `curl`.
+> A simple program to understand how to work with Kotlin Native to access GPIO pins on a Raspberry Pi. It also features a Ktor-based web interface in addition to just using `curl`. Developed using [JetBrains Fleet](https://www.jetbrains.com/de-de/fleet/).
 
 ## tl;dr
 
-KPi.Blinkt is a sample how to use Kotlin Native on a Raspberry Pi to access and control attached HATs using the GPIO
+KPi.Blinkt is a sample how to use Kotlin Native on a Raspberry Pi to access and control attached Blinkt HATs using the GPIO
 connector. It's build on top of the [ktgpio](https://github.com/ktgpio/ktgpio/) library.
 
 In many parts, this is a port of
 my [HomeBear.Blinkt](https://github.com/tscholze/dotnet-iot-homebear-blinkt/tree/master/HomeBear.Blinkt/Controller)
-Windows 10 IoT C# app I wrote times ago.
+Windows 10 IoT C# app I wrote times ago. I used in a few cases ChatGPD to convert my C# code into Kotlin one which worked very well.
 
 ## Required Hardware
 
@@ -21,7 +21,7 @@ Windows 10 IoT C# app I wrote times ago.
 - Windows, Mac or Linux host
 - Installed SSH client, mostly build into the host OS
 - Raspbian 64bit or other Raspberry Pi OS with GPIO libaries
-- JetBrains Fleet, IntelliJ (Community) or similar to edit Kotlin code
+- [JetBrains Fleet](https://www.jetbrains.com/de-de/fleet/), IntelliJ (Community) or similar to edit Kotlin code
 
 ## How to run
 
@@ -76,8 +76,7 @@ Just me, [Tobi]([https://tscholze.github.io).
 ## Special thanks to
 
 BitSpittle, CharLEE, Clovis and TheDome from the [Kobweb Discord](https://discord.com/invite/5NZ2GKV5Cs) to support
-Kotlin beginners
-like me.
+Kotlin beginners like me. As well as Sebastian Aginer from JetBrains to get me back into Kotlin with his Twitch Streams.
 
 ## License
 
