@@ -77,7 +77,8 @@ developers.
 
 ## Authors
 
-Just me, [Tobi]([https://tscholze.github.io).
+- Me [(Tobi)]([https://tscholze.github.io) as main developer
+- [Sebastian Aigner from JetBrains](https://github.com/SebastianAigner) for fixing his own name
 
 ## Special thanks to
 
