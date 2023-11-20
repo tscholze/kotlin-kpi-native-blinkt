@@ -69,6 +69,10 @@ curl -X POST http://pi:8080/shutdown
 Please click to watch.
 [![Watch the video](https://img.youtube.com/vi/TJObdr6nuBI/maxresdefault.jpg)](https://youtu.be/TJObdr6nuBI)
 
+## Publications
+
+- Hackster.io [post](https://www.hackster.io/tscholze/kblinkt-kotlin-native-program-to-control-a-blinkt-hat-1f8208)
+
 
 ## Contributing
 
