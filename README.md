@@ -11,6 +11,11 @@ In many parts, this is a port of
 my [HomeBear.Blinkt](https://github.com/tscholze/dotnet-iot-homebear-blinkt/tree/master/HomeBear.Blinkt/Controller)
 Windows 10 IoT C# app I wrote times ago. I used in a few cases ChatGPD to convert my C# code into Kotlin one which worked very well.
 
+## Build status
+|Service|Status|
+|-|-|
+|GitHub|[![Gradle build](https://github.com/tscholze/kotlin-kpi-native-blinkt/actions/workflows/gradle.yml/badge.svg?event=push)](https://github.com/tscholze/kotlin-kpi-native-blinkt/actions/workflows/gradle.yml)|
+
 ## Required Hardware
 
 - 64bit Raspberry Pi (Model 3B and later)
