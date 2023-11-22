@@ -32,6 +32,10 @@ Windows 10 IoT C# app I wrote times ago. I used in a few cases ChatGPD to conver
 
 Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the play symbol on the first line of the file.
 
+## Schema
+
+<img src="_docs/flow.png" />
+
 ## Available web interface
 
 After booting up the app, you can connect to `http://pi:8080/` and control the Blinkt! HAT using your browser.
