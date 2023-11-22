@@ -19,7 +19,7 @@ Windows 10 IoT C# app I wrote times ago. I used in a few cases ChatGPD to conver
 ## Required Hardware
 
 - 64bit Raspberry Pi (Model 3B and later)
-- [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) Raspberry Pi HAT
+- [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) Raspberry Pi HAT with 8x APA102 pixels
 
 ## Required Software
 
@@ -64,7 +64,7 @@ curl -X POST http://pi:8080/shutdown
 
 - [x] Project setup
 - [x] Deployment to a Pi using a convenient shell script
-- [x] Control LEDs using Kotlin functions
+- [x] Control APA102 based LEDs using Kotlin functions
 - [x] Add "plugin"-system for light modes
 - [x] Control LEDs using remote computer's `curl` commands
 - [x] Control LEDs using a simple web interface
