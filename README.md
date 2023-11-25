@@ -80,7 +80,8 @@ Please click to watch.
 
 ## Publications
 
-- Hackster.io [post](https://www.hackster.io/tscholze/kblinkt-kotlin-native-program-to-control-a-blinkt-hat-1f8208)
+* Hackster.io: [KBlinkt! - Kotlin Native program to control a Blinkt! HAT](https://www.hackster.io/tscholze/kblinkt-kotlin-native-program-to-control-a-blinkt-hat-1f8208)
+* Dr. Windows: [Wir basteln blinkende Lichter mit dem Raspberry Pi und Kotlin Native](https://www.drwindows.de/news/wir-basteln-blinkende-lichter-mit-dem-raspberry-pi-und-kotlin-native)
 
 
 ## Contributing
@@ -90,8 +91,8 @@ developers.
 
 ## Authors
 
-- Me [(Tobi)]([https://tscholze.github.io) as main developer
-- [Sebastian Aigner from JetBrains](https://github.com/SebastianAigner) for fixing his own name
+* Me [(Tobi)]([https://tscholze.github.io) as main developer
+* [Sebastian Aigner from JetBrains](https://github.com/SebastianAigner) for fixing his own name
 
 ## Special thanks to
 
