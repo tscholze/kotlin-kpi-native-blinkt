@@ -36,13 +36,23 @@ Open the `build_deploy.start.sh` file, edit `PI_HOST` property and click the pla
 
 <img src="_docs/flow.png" />
 
-## Available web interface
+
+## Features
+
+- [x] Project setup
+- [x] Deployment to a Pi using a convenient shell script
+- [x] Control APA102 based LEDs using Kotlin functions
+- [x] Add "plugin"-system for light modes
+- [x] Control LEDs using remote computer's `curl` commands
+- [x] Control LEDs using a simple web interface
+
+### Available web interface
 
 After booting up the app, you can connect to `http://pi:8080/` and control the Blinkt! HAT using your browser.
 
 <img src="_docs/web.png" height="250" />
 
-## Available `curl` commands
+### Available `curl` commands
 
 After the server has been started, the following commands are available:
 
@@ -63,15 +73,6 @@ curl -X POST http://pi:8080/morse -d "hello"
 # System shutdown
 curl -X POST http://pi:8080/shutdown
 ```
-
-## Features
-
-- [x] Project setup
-- [x] Deployment to a Pi using a convenient shell script
-- [x] Control APA102 based LEDs using Kotlin functions
-- [x] Add "plugin"-system for light modes
-- [x] Control LEDs using remote computer's `curl` commands
-- [x] Control LEDs using a simple web interface
 
 ## How it looks
 
