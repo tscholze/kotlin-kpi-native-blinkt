@@ -1,3 +1,5 @@
+![](_docs/socialmedia.png)
+
 # Kpi.KBlinkt
 
 > A simple program to understand how to work with Kotlin Native to access GPIO pins on a Raspberry Pi. It also features a Ktor-based web interface in addition to just using `curl`. Developed using [JetBrains Fleet](https://www.jetbrains.com/de-de/fleet/).
