@@ -13,6 +13,10 @@ In many parts, this is a port of
 my [HomeBear.Blinkt](https://github.com/tscholze/dotnet-iot-homebear-blinkt/tree/master/HomeBear.Blinkt/Controller)
 Windows 10 IoT C# app I wrote times ago. I used in a few cases ChatGPD to convert my C# code into Kotlin one which worked very well.
 
+### Other KPi projects
+- [Kpi.Blinkt!](https://github.com/tscholze/kotlin-kpi-native-blinkt/) - Controlling a Pimoroni Blinkt! HAT
+- [Kpi.Enviro](https://github.com/tscholze/kotlin-kpi-native-blinkt) - Reading sensor values from a Pimoroni Enviro pHAT
+
 ## Build status
 |Service|Status|
 |-|-|
